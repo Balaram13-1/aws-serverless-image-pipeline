@@ -9,7 +9,8 @@ Every service interacts asynchronously based on event states:
 
 [User Upload] ──► [S3 Source Bucket]
                          │
-                         ▼ (S3 Event Trigger)
+                         ▼ 
+                         (S3 Event Trigger)
                    [AWS Lambda (Python)]
                          │
         ┌────────────────┴────────────────┐
