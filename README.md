@@ -41,6 +41,9 @@ Every service interacts asynchronously based on event states:
    * **Bucket name:** `processed-photos-bram`
    * **AWS Region:** Select `ap-south-1` (Mumbai)
 
+  ![Architecture Diagram](images/architecture.jpg)
+
+
 ### Step 2: Establish Communications (Amazon SNS)
 1. Navigate to the **Simple Notification Service (SNS) Console**.
 2. Click **Topics** -> **Create topic**.
@@ -48,6 +51,8 @@ Every service interacts asynchronously based on event states:
 4. Inside your new topic, click **Create subscription**.
 5. Set the **Protocol** to `Email` and input your personal target email account into the **Endpoint** block. Save changes.
 6. Open your email inbox, find the confirmation prompt from AWS, and click the activation link to authorize incoming dispatches.
+
+![SNS Subscriptions Diagram](images/SNS.png)
 
 ### Step 3: Initialize the Data Registry (Amazon DynamoDB)
 1. Navigate to the **DynamoDB Console**.
@@ -57,6 +62,9 @@ Every service interacts asynchronously based on event states:
    * **Partition key:** `PhotoID` (Set string variable option `S`)
 4. Keep standard configurations and hit **Create table**.
 
+![DynamoDB Tables Logs](images/dynamoDB.png)
+
+
 ### Step 4: Create the Compute Engine (AWS Lambda)
 1. Navigate to the **Lambda Console**.
 2. Click **Create function** and select **Author from scratch**.
@@ -65,6 +73,9 @@ Every service interacts asynchronously based on event states:
    * **Runtime:** `Python 3.12`
    * **Architecture:** `x86_64`
 4. Click **Create function**.
+
+
+![Lambda Configuration](images/Lambda.png)
 
 ### Step 5: Configure Access Control (IAM Security Policies)
 1. On your Lambda function console dashboard, select **Configuration** tab -> **Permissions**.
@@ -86,6 +97,9 @@ Double-click `lambda_function.py` in the Lambda editor workspace, erase placehol
    * **Bucket:** Select `source-photos-bram`
    * **Event types:** Check `All object create events`
 4. Tick the recursive interaction warning declaration checkbox and click **Add**.
+
+   
+![S3 Trigger Setup](images/lambdaTriggers.png)
 
 ---
 
