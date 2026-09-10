@@ -16,6 +16,9 @@ Every service interacts asynchronously based on event states:
         ▼                                 ▼
 [S3 Destination Bucket]           [DynamoDB Table] ──► [SNS Topic] ──► [Your Email]
 
+
+![Architecture Diagram](images/architecture.jpg)
+
 ---
 
 ## 🛠️ Infrastructure Services & Roles
@@ -41,7 +44,7 @@ Every service interacts asynchronously based on event states:
    * **Bucket name:** `processed-photos-bram`
    * **AWS Region:** Select `ap-south-1` (Mumbai)
 
-  ![Architecture Diagram](images/architecture.jpg)
+  ![S3 Buckets Dashboard](images/S3buckets.png)
 
 
 ### Step 2: Establish Communications (Amazon SNS)
